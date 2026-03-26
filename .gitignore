@@ -1,0 +1,6 @@
+.venv/
+my_tweet_model/
+*.safetensors
+*.bin
+checkpoint-*/
+extracted_tweets.txt

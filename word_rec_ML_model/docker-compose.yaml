@@ -1,0 +1,28 @@
+services:
+  backend:
+    build: ./backend
+    container_name: word-rec-backend
+    ports:
+      - "8000:8000"
+    # ホストの backend/ をコンテナの /app に同期
+    # → main.py を変更すると --reload で自動反映される
+    volumes:
+      - ./backend:/app
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: word-rec-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      # Docker内部ネットワーク経由でバックエンドに接続
+      # "backend" はこのファイルのサービス名がそのままホスト名になる
+      - BACKEND_URL=http://backend:8000
+    volumes:
+      - ./frontend:/app
+      # node_modules はコンテナ内のものを使う（ホストと混在しないよう除外）
+      - /app/node_modules
+    depends_on:
+      - backend
+    restart: unless-stopped

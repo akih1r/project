@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-multipart
+pandas
+librosa
+matplotlib
+torch
+torchvision
+torchaudio
+tqdm

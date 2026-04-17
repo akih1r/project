@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+
+# Next.js / Node
+**/node_modules/
+.next/
+out/
+build/
+.DS_Store
+
+# Machine Learning / Data (重要!)
+# データセットや学習済みモデル（重いファイル）を除外
+backend/model/*.pth
+backend/model/*.h5
+data/
+*.wav
+*.png
+frontend/src/app/api/transcri/*
+!frontend/src/app/api/transcri/route.ts
+
+# AI Agent instructions
+AGENTS.md
+CLAUDE.md
